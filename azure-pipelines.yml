@@ -34,9 +34,7 @@ steps:
   inputs:
     artifactFeeds: sebastienremy
 
-- script: 'python setup.py sdist'
-  displayName: 'Build sdist'
-    
+   
 - script: |
    echo "Run application"
    export FLASK_APP=filesize_web/web
