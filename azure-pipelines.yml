@@ -24,23 +24,23 @@ steps:
     pip install -r requirements.txt
   displayName: 'Install dependencies'
 
-- task: PipAuthenticate@1
-  displayName: 'Pip Authenticate'
-  inputs:
-    artifactFeeds: sebastienremy
-
 - script: |
     pip install pytest pytest-azurepipelines
     pytest
   displayName: 'pytest'
 
+- task: PipAuthenticate@1
+  displayName: 'Pip Authenticate'
+  inputs:
+    artifactFeeds: sebastienremy
+
 - script: 'python setup.py sdist'
   displayName: 'Build sdist'
-  
-  
+    
 - script: |
    echo "Run application"
    export FLASK_APP=filesize_web/web
    flask run
 
   displayName: 'Run application'
+  timeoutInMinutes: 1
