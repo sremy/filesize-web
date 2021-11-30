@@ -38,7 +38,14 @@ steps:
 - script: |
    echo "Run application"
    export FLASK_APP=filesize_web/web
-   flask run
+   flask run &
 
   displayName: 'Run application'
+  timeoutInMinutes: 1
+
+- script: |
+   echo "Test application"
+   curl http://127.0.0.1:5000/
+
+  displayName: 'Call application webservice'
   timeoutInMinutes: 1
