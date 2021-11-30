@@ -1,5 +1,6 @@
 from flask import Flask
 from flask import request
+from archivesize.filesize import human_size
 
 app = Flask(__name__)
 
@@ -11,7 +12,7 @@ def hello_world():
 @app.route('/filesize')
 def human_filesize_parameter():
     filesize = request.args.get('size', '')
-    return str(filesize)
+    return str(human_size(filesize))
 
 
 @app.route('/filesize/<int:filesize>')
