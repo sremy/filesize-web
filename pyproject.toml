@@ -1,0 +1,17 @@
+[tool.poetry]
+name = "filesize-web"
+version = "0.1.0"
+description = "REST API giving file size in human format"
+authors = ["Sébastien REMY <sebastien.remy@novencia.com>"]
+
+[tool.poetry.dependencies]
+python = "^3.7"
+Flask = "^2.0.2"
+gunicorn = "^20.1.0"
+
+[tool.poetry.dev-dependencies]
+pytest = "^6.2.5"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
