@@ -11,11 +11,11 @@ def hello_world():
 
 @app.route('/filesize')
 def human_filesize_parameter():
-    filesize = request.args.get('size', '')
+    filesize = int(request.args.get('size', '0'))
     return str(human_size(filesize))
 
 
 @app.route('/filesize/<int:filesize>')
 def human_filesize(filesize):
-    return str(filesize)
+    return str(human_size(filesize))
 
